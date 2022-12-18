@@ -15,15 +15,19 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Courgette&family=Dancing+Script:wght@500;600;700&family=Karla:ital,wght@1,200;1,400&family=Source+Code+Pro:ital,wght@0,500;1,300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Courgette&family=Dancing+Script:wght@500;600;700&family=Karla:ital,wght@1,200;1,400&family=Source+Code+Pro:ital,wght@0,500;1,300&display=swap"
+      rel="stylesheet"
+    />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Courgette&family=Dancing+Script:wght@500;600;700&family=Karla:ital,wght@1,200&family=Source+Code+Pro:ital,wght@0,500;1,300&display=swap"
       rel="stylesheet"
     />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <title>😶‍🌫️ Amethyst Weather App</title>
   </head>
@@ -32,10 +36,10 @@
       <div class="weather-app-wrapper">
         <div class="weather-app">
           <div class="overview">
-            <h1>New York</h1>
+            <h1 id="city">New York</h1>
             <ul>
               <li>Friday 05:00</li>
-              <li>Clear</li>
+              <li id="description">Clear</li>
             </ul>
           </div>
           <div class="d-flex weather-temperature">
@@ -44,12 +48,12 @@
               alt="Clear"
             />
             <div>
-              <strong>12</strong>
+              <strong id="temperature"></strong>
               <span class="units">°C | <a href="#">°F</a> </span>
             </div>
           </div>
           <div class="metrology">
-            Precipitation: 0% | Humidity: 75% | Wind: 2 Km/hr
+            Humidity: <span id="humidity"></span>% | Wind: <span id = "wind"></span>Km/hr
           </div>
         </div>
         <small>
@@ -59,5 +63,6 @@
         </small>
       </div>
     </div>
+    <script src="src/app.js"></script>
   </body>
 </html>
