@@ -1,4 +1,31 @@
 // Functions
+
+let unit = "metric";
+console.log(unit);
+
+function displayFarenheitTemperature(event) {
+  event.preventDefault();
+  celciusLink.classList.remove("active");
+  farenheitLink.classList.add("active");
+  let temperatureElement = document.querySelector("#temperature");
+  let farenheitTemperature = (celciusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(farenheitTemperature);
+}
+
+function displayCelciusTemperature(event) {
+  event.preventDefault();
+  celciusLink.classList.add("active");
+  farenheitLink.classList.remove("active");
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(celciusTemperature);
+}
+
+let farenheitLink = document.querySelector("#farenheit-link");
+farenheitLink.addEventListener("click", displayFarenheitTemperature);
+
+let celciusLink = document.querySelector("#celcius-link");
+celciusLink.addEventListener("click", displayCelciusTemperature);
+
 function formatDate(timestamp) {
   // Calculate date
   let date = new Date(timestamp);
@@ -34,10 +61,10 @@ function formatDay(timeStamp) {
 
 function displayForecast(response) {
   forecast = response.data.daily;
-  console.log(forecast);
   let forecastElemement = document.querySelector("#forecast");
 
-  let forecastHTML = `<div class="row">`;
+  let forecastHTML = ` <div class="card opacity-75">
+                          <div class="row">`;
 
   forecast.forEach(function (forecastDay, index) {
     if (index < 6) {
@@ -69,7 +96,7 @@ function displayForecast(response) {
     }
   });
 
-  forecastHTML = forecastHTML + `</div>`;
+  forecastHTML = forecastHTML + `</div> </div>`;
   forecastElemement.innerHTML = forecastHTML;
 }
 
@@ -104,23 +131,6 @@ function displayTemperature(response) {
   getForecast(response.data.coordinates);
 }
 
-function displayFarenheitTemperature(event) {
-  event.preventDefault();
-  celciusLink.classList.remove("active");
-  farenheitLink.classList.add("active");
-  let temperatureElement = document.querySelector("#temperature");
-  let farenheitTemperature = (celciusTemperature * 9) / 5 + 32;
-  temperatureElement.innerHTML = Math.round(farenheitTemperature);
-}
-
-function displayCelciusTemperature(event) {
-  event.preventDefault();
-  celciusLink.classList.add("active");
-  farenheitLink.classList.remove("active");
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(celciusTemperature);
-}
-
 function search(city) {
   let apiKey = "o48130fet42a8ab13ff24260fbc81c4c";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
@@ -137,11 +147,5 @@ let celciusTemperature = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
-
-let farenheitLink = document.querySelector("#farenheit-link");
-farenheitLink.addEventListener("click", displayFarenheitTemperature);
-
-let celciusLink = document.querySelector("#celcius-link");
-celciusLink.addEventListener("click", displayCelciusTemperature);
 
 search("New York");

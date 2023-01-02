@@ -1,5 +1,5 @@
 body {
-  color: white;
+  color: #251b37;
   font-family: "Karla", sans-serif;
   font-weight: bold;
   background: rgba(147, 125, 194, 0.4);
@@ -67,10 +67,10 @@ li {
 
 .weather-temperature a {
   text-decoration: none;
-  color: aquamarine;
+  color: #6C00FF;
 }
 .weather-temperature .active {
-  color: white;
+  color: #251b37;
   cursor: default;
   text-decoration: none;
 }
@@ -97,10 +97,11 @@ li {
 }
 
 .weather-forecast-temperature-min {
-  color: aquamarine;
+  color: #6c00ff;
   opacity: 0.9;
 }
 .metrology {
-  margin-top: 100px;
+  color: white;
+  margin-top: 40px;
   margin-bottom: 25px;
 }
